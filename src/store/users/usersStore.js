@@ -13,6 +13,20 @@ export const usersStore = createFeatureStore({
             const users = actions.getUsers();
 
             return users;
+        },
+
+        // Action to initialize state listeners
+        initListeners() {
+            // Returns cleanup functions if you ever need to teardown
+            const unwatchCount = state.watch('count', (newVal) => {
+                console.log('Count updated, fetching users...');
+                // Trigger another store action
+                this.getUsers();
+            });
+
+            return () => {
+                unwatchCount();
+            };
         }
 
     })
