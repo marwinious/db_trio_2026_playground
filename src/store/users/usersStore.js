@@ -9,12 +9,8 @@ export const usersStore = createFeatureStore({
     actions: ({ engine }) => ({
 
         async getUsers() {
-            const response = await fetch('https://jsonplaceholder.typicode.com/users');
-            let users = [];
-
-            if(response.ok) {
-                users = await response.json();
-            }
+            const actions = engine.getActions('users');
+            const users = actions.getUsers();
 
             return users;
         }
