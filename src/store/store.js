@@ -5,3 +5,6 @@ export const store = {
     users: usersStore,
     posts: postsStore
 }
+
+// Init listeners
+store.users.actions.initListeners();
