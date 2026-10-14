@@ -11,8 +11,6 @@ const getLogger = createLogger({
 const logger = getLogger('main', 'debug', true);
 logger.debug('Test message from main.js logger')
 
-
-
 const app = document.getElementById('app');
 
 function render() {
@@ -44,7 +42,13 @@ async function getPosts() {
 getUsers();
 getPosts();
 
+function updateCount() {
+    state.setState({ count: 1 });
+}
 
+setTimeout(() => {
+    updateCount();
+}, 2000);
 
 
 
