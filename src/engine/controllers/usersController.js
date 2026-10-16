@@ -4,16 +4,18 @@ export const usersController = defineController({
     name: 'users',
     logLevel: 'debug',
     logEnabled: true,
-    setup({ state, logger, events}) {
+    setup({ state, logger, events, http}) {
 
         return {
             
             async getUsers() {
-                const response = await fetch('https://jsonplaceholder.typicode.com/users');
+                const response = await http.get('/users');
+                console.log({response});
+                
                 let users = [];
 
-                if(response.ok) {
-                    users = await response.json();
+                if(response) {
+                    users = response;
                 }
 
                 logger.debug('Got users from engine!', users)
