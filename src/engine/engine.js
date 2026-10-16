@@ -1,7 +1,7 @@
 import { createEngine } from 'vertex_engine'
 import { state } from '../store/primaryState.js'
-import { testController } from './controllers/testController.js'
 import { usersController } from './controllers/usersController.js';
+import { postsController } from './controllers/postsController.js';
 
 // Init engine with global state
 const engine = createEngine({ 
@@ -18,7 +18,7 @@ const engine = createEngine({
 });
 
 // Register controllers
-engine.register(testController);
 engine.register(usersController);
+engine.register(postsController);
 
 export { engine }

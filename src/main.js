@@ -31,12 +31,12 @@ changeAppName('Something entirely different');
 
 async function getUsers() {
     let users = await store.users.actions.getUsers();
-    logger.debug('Got users', users);
+    logger.debug('Got users in main.js', users);
 }
 
 async function getPosts() {
     let posts = await store.posts.actions.getPosts();
-    logger.debug('Got posts', posts);
+    logger.debug('Got posts in main.js', posts);
 }
 
 getUsers();
@@ -49,11 +49,3 @@ function updateCount() {
 setTimeout(() => {
     updateCount();
 }, 2000);
-
-
-
-console.log(state.getState());
-console.log(engine.events);
-const testActions = engine.getActions('test');
-console.log({testActions});
-testActions.testMethod();
